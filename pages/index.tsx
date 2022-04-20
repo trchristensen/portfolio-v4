@@ -6,8 +6,8 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { PostFrontMatter } from 'types/PostFrontMatter'
-import NewsletterForm from '@/components/NewsletterForm'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
+import NewsletterForm from '@/components/NewsletterForm'
 import { getFileBySlug } from '@/lib/mdx'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 
@@ -16,7 +16,7 @@ const DEFAULT_LAYOUT = 'AuthorLayout.Home'
 
 export const getStaticProps: GetStaticProps<{
   posts: PostFrontMatter[]
-  authorDetails: { mdxSource: string; frontMatter: AuthorFrontMatter }
+  authorDetails
 }> = async () => {
   const posts = await getAllFilesFrontMatter('blog')
   const authorDetails = await getFileBySlug<AuthorFrontMatter>('authors', ['default'])
@@ -27,10 +27,8 @@ export const getStaticProps: GetStaticProps<{
 
 export default function Home({
   posts,
-  authorDetails,
+  authorDetails: { mdxSource, frontMatter },
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { mdxSource, frontMatter } = authorDetails
-
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -40,7 +38,7 @@ export default function Home({
           mdxSource={mdxSource}
           frontMatter={frontMatter}
         />
-        <div className="space-y-2 mt-6 pt-6 pb-8 md:space-y-5">
+        <div className="mt-6 space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Latest
           </h1>

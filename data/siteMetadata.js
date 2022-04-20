@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'Todd Christensen Portfolio',
   author: 'Todd Christensen',
-  headerTitle: 'Todd Christensen',
+  headerTitle: '/',
   description: 'A blog created with Next.js and Tailwind.css',
   language: 'en-us',
   theme: 'system', // system, dark or light
