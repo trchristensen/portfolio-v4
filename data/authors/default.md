@@ -7,11 +7,11 @@ email: hello@toddchristensen.net
 twitter: https://twitter.com/christensen_tr
 linkedin: https://www.linkedin.com
 github: https://github.com/trchristensen
+resume: https://docs.google.com/document/d/1AVXTyyuJYV1dfKAlz2BPQqpF041rQx1kz1Ug9BHOmbU/edit?usp=sharing
 excerpt: Realizing my ideas through code. California native, currently residing in the Philippines 🇵🇭
-
 ---
 
-Todd Christensen is talking about himself in the third person right now. He is a web developer with plenty of experience in front end applications and websites. His most used frontend framework is React, with Next.js. Obviously he can build a full stack application. 
+Todd Christensen is talking about himself in the third person right now. He is a web developer with plenty of experience in front end applications and websites. His most used frontend framework is React, with Next.js. Obviously he can build a full stack application.
 
 Todd is currently working on implementing blockchain technologies into his projects. In his expert opinion, decentralization is critical to the future of the web.
 

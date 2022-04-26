@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Todd Christensen Portfolio',
   author: 'Todd Christensen',
   headerTitle: '/',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: 'Home of the great software engineer Todd Christensen',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
@@ -16,6 +16,8 @@ const siteMetadata = {
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
+  resume:
+    'https://docs.google.com/document/d/1AVXTyyuJYV1dfKAlz2BPQqpF041rQx1kz1Ug9BHOmbU/edit?usp=sharing',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

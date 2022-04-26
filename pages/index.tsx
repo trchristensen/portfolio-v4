@@ -10,6 +10,9 @@ import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 import NewsletterForm from '@/components/NewsletterForm'
 import { getFileBySlug } from '@/lib/mdx'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import projectsData from '@/data/projectsData'
+import CompactCard from '@/components/CompactCard'
+import workData from '@/data/workData'
 
 const MAX_DISPLAY = 5
 const DEFAULT_LAYOUT = 'AuthorLayout.Home'
@@ -32,16 +35,16 @@ export default function Home({
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div>
         <MDXLayoutRenderer
           layout={frontMatter.layout || DEFAULT_LAYOUT}
           mdxSource={mdxSource}
           frontMatter={frontMatter}
         />
-        <div className="mt-6 space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
-          </h1>
+        <div className="mt-8 space-y-2 pt-6 pb-8 md:space-y-5">
+          <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+            Latest Posts
+          </h2>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
@@ -109,11 +112,74 @@ export default function Home({
           </Link>
         </div>
       )}
+
+      <div className="mt-8 space-y-2 pt-6 pb-8 md:space-y-5">
+        <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+          Latest Projects
+        </h2>
+      </div>
+      <ul className="mb-12">
+        {projectsData.length &&
+          projectsData.slice(0, MAX_DISPLAY).map((project, idx) => {
+            return (
+              <li className="-mb-4" key={idx}>
+                {/* <ProjectCard {...project} /> */}
+                <CompactCard
+                  title={project.title}
+                  description={project.description}
+                  href={project.href}
+                  imgSrc={null}
+                />
+              </li>
+            )
+          })}
+      </ul>
+      {projectsData.length > MAX_DISPLAY && (
+        <div className="flex justify-end text-base font-medium leading-6">
+          <Link
+            href="/projects"
+            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            aria-label="all projects"
+          >
+            All Projects &rarr;
+          </Link>
+        </div>
+      )}
+      <div className="mt-8 space-y-2 pt-6 md:space-y-5">
+        <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+          Work
+        </h2>
+      </div>
+      <Work />
+
       {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
       )}
     </>
+  )
+}
+
+const Work = () => {
+  return (
+    <div className="mb-8 flex flex-col space-y-3 py-12">
+      {workData.map((job, idx) => (
+        <a
+          key={idx}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={job.companySite}
+          className="group flex items-center space-x-4"
+        >
+          <span className="group-hover:text-accent flex-none font-medium group-hover:underline">
+            {job.company}
+          </span>
+          <span className="border-base-content w-full flex-shrink border-t border-dashed"></span>
+          <span className="text-tertiary flex-none">{job.jobTitle}</span>
+          <span className="text-quaternary flex-none font-mono">{job.dates}</span>
+        </a>
+      ))}
+    </div>
   )
 }

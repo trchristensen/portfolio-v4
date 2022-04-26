@@ -1,0 +1,52 @@
+---
+title: 'Christy Vault Company'
+date: '2021-12-06'
+tags: ['projects', 'next js']
+draft: false
+summary: 'A static (SSG) website built for a client from scratch using Next.js and Contentful API.'
+image: '/static/images/christy-c.jpeg'
+---
+
+<Image
+  alt={`Christy Vault Company`}
+  src={`/static/blog/christy-c.webp`}
+  width={1400 / 2}
+  height={908 / 2}
+  priority
+/>
+
+## Mission
+
+Christy Vault Company, Inc. is a manufacturing company for the funeral industry, based in the San Francisco Bay Area, California. They have been in business since 1948, so there is a lot of history and reputation behind the Christy name.
+
+The goal was to create a digital presence that would help convey that history and reputation. The homepage, above the fold content reflects exactly that. Christy Vault Company is a name with heritage and recognition-- a name you can trust.
+
+## Design
+
+I will be the first to admit that I am not experienced in design, whatsoever. However, I decided to take a stab at it with this client and came up with a quick desktop homepage comp in Figma. The goal was to create a rough guide of the look and feel of the site.
+
+The content, or lack of content the client provided was not ideal. By using a lot of white space to provide a minimalist feel, I think it worked out nicely. I found quite a bit of inspiration from browsing behance.
+
+<br />
+<Image
+  className="w-full rounded-lg"
+  layout="responsive"
+  alt={`Figma Design`}
+  src={`/static/blog/figma-c.webp`}
+  width={1018 / 2}
+  height={969 / 2}
+/>
+
+## Platform
+
+An major issue Christy Vault faced with their last website of over 15 years, was their lack of ability to update content themselves. The site was built during the ancient times of HTML tables and coding in text editors. If something needed to be updated, they had to ask the webmaster.
+
+My goal was to remove the middle man. I wanted to make it as simple and straight-forward as possible for the office manager, or anyone to add a new project page, write out a new blog post or event. Make changes to page content, even.
+
+I first decided to go with Wordpress, paired with Elementor pagebuilder. However, due to the bloated nature of pagebuilders like Elementor, I decided to go with a JAMStack. You can read more about my view on pagebuilders vs static framewords like Nextjs [here].
+
+Next.js' Static Site Generation (SSG) combined with an external content editor like Contentful provided both blazing fast performance and just the right amount of editability (is that a word?) the client needed. Combined with Vercel hosting, I essentially cut out the webmaster and the hosting provider (same guy), saving the client more money in the long run.
+
+## Performance
+
+[lighthouse score here]
